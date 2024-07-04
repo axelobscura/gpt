@@ -30,7 +30,7 @@ export const POST = async (req: Request) => {
       },
       {
         role: 'user',
-        content: `Genera un artículo completo con toda la información sobre el siguiente tema delimitado por tres hyphens con formato HTML:
+        content: `Genera un artículo con toda la información encontrada y relacionada sobre el siguiente tema delimitado por tres hyphens con formato HTML:
         ---
         ${topic}
         ---
