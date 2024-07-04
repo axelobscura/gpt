@@ -1,8 +1,7 @@
 import OpenAI from 'openai';
 import type { NextApiRequest, NextApiResponse } from 'next';
  
-export function GET(
-  req: NextApiRequest,
-) {
-  return Response.json({ message: 'Hello from Next.js!' })
+export const GET = (req: Request) => {
+	// do stuff
+	return new Response('hello world');
 }
