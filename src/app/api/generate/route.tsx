@@ -13,32 +13,21 @@ const keywords = "agregados para concreto";
  
 export async function POST(
   req: NextApiRequest,
-  res: NextApiResponse
 ) {
-  const prompt = "potatoe";
-
-  if (!prompt) {
-    return res.status(400).json({ error: "Prompt missing" });
-  }
-
-  if (prompt.length > 100) {
-    return res.status(400).json({ error: "Prompt too long" });
-  }
-
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: `Create a cringy motivational quote based on the following topic.\n
-    Topic: ${prompt}\n
-    Cringy motivational quote:`,
-    max_tokens: 500,
-    temperature: 1,
-    presence_penalty: 0,
-    frequency_penalty: 0,
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo-1106",
+    messages: [
+      {
+        role: "system",
+        content: "Asistente de concreto.",
+      },
+      {
+        role: "user",
+        content: `Generar un titulo y una descripcion para el siguiente: ${topic}.`,
+      },
+    ],
   });
-
-  const quote = completion.data.choices[0].text;
-
-  console.log('quote: ', quote);
-
-  res.status(200).json({ quote });
+  
+  console.log(response);
+  return Response.json({ message: 'Hello from Next.js!' })
 }
