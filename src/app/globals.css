@@ -24,7 +24,7 @@ body {
   padding: 10px 0;
 }
 
-.articulo h2, .articulo h1 {
+.articulo h2, .articulo h1, .articulo h3 {
   font-weight: bold;
 }
 
