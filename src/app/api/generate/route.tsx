@@ -3,5 +3,5 @@ import type { NextApiRequest, NextApiResponse } from 'next';
  
 export const GET = (req: Request) => {
 	// do stuff
-	return new Response('hello world');
+	return Response.json({ message: 'hola' })
 }
