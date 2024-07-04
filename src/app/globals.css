@@ -20,6 +20,18 @@ body {
   color: #111;
 }
 
+.articulo p {
+  padding: 10px 0;
+}
+
+.articulo h2, .articulo h1 {
+  font-weight: bold;
+}
+
+.articulo h1 {
+  font-size: 2rem;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

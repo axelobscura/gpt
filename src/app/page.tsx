@@ -2,10 +2,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "./components/Logo";
+import { FiArrowUpCircle } from "react-icons/fi";
 
 export default function Home() {
   const [articulo, setArticulo] = useState("");
   const [tema, setTema] = useState("");
+  const [autor, setAutor] = useState(false);
   const [keywords, setKeywords] = useState("");
   const nuevaConsulta = (e: any) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ export default function Home() {
     });
     const data = await response.json();
     setArticulo(data.message);
+    setAutor(true);
   }
   return (
     <div className="grid h-screen max-h-screen">
@@ -32,18 +35,30 @@ export default function Home() {
         <h1 className="text-2xl text-upper font-bold mb-4 uppercase font-thin" style={{
           color: '#333'
         }}>Asistente concreton by IMCYC</h1>
+        <p><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         <div className="p-10 rounded-md w-full overflow-auto text-justify">
-          <div dangerouslySetInnerHTML={{__html: articulo}} />
+          {autor ? 
+            <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
+          :
+            <div><p className="uppercase w-full text-center ">Cargando contenido</p></div>
+          }
         </div>
-        <div className="w-full block p-4 mb-3">
-          <form onSubmit={handleSubmit} className="w-full block p-4">
+        
+        <div className="w-full block p-4 mb-3 grid">
+          <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[90%_1fr]">
             <input type="text" id="tema" name="tema" value={tema} onChange={(e) => setTema(e.target.value)} className="w-full px-10 py-1 rounded-md mb-4 text-gray-900 border-gray-900 h-90" style={{
-              backgroundColor: '#f5f5f5',
+              backgroundColor: '#ddd',
               padding: '20px',
               borderRadius: '20px'
             }} />
-            <button type="submit" className="bg-blue-500 tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-4 py-2 my-2 rounded-md hover:bg-blue-600 transition-colors block">
-              <i className="icon icon-arrow-right text-lg text-blue-500"></i>
+            <button type="submit" className="tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-4 py-2 my-2 rounded-md transition-colors block" style={{
+              borderRadius: "50%",
+              marginTop: "-10px"
+            }}>
+              <FiArrowUpCircle className="bg-gray-500 hover:bg-gray-600" style={{
+                fontSize: '60px',
+                borderRadius: '50%'
+              }} />
             </button>
           </form>
         </div>
