@@ -32,13 +32,8 @@ export default function Home() {
         <h1 className="text-2xl text-upper font-bold mb-4 uppercase font-thin" style={{
           color: '#333'
         }}>Asistente concreton by IMCYC</h1>
-        <div className="p-5 rounded-md w-full overflow-auto text-justify">
-          <p className="font-thin text-1xl" style={{
-            color: "#111111",
-            padding: "20px",
-            border: tema ? "1px solid #888" : "none",
-            borderRadius: "20px",
-          }}>{articulo}</p>
+        <div className="p-10 rounded-md w-full overflow-auto text-justify">
+          <div dangerouslySetInnerHTML={{__html: articulo}} />
         </div>
         <div className="w-full block p-4 mb-3">
           <form onSubmit={handleSubmit} className="w-full block p-4">
