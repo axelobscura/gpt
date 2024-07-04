@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Oswald } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-const oswald = Oswald({
+const oswald = Open_Sans({
   subsets: ["latin"],
-  weight: ['200','300','400','500','600','700'],
+  weight: ['300','400','500','600','700'],
   variable: "--font-oswald"
 });
 

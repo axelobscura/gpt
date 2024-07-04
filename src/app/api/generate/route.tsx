@@ -12,7 +12,6 @@ export const POST = async (req: Request) => {
   const openai = new OpenAIApi(config);
   
   const topic = data.tema;
-  const keywords = data.keywords;
   
   const postContentResult = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo-1106',
@@ -23,19 +22,15 @@ export const POST = async (req: Request) => {
       },
       {
         role: 'user',
-        content: `Genera un artículo sobre el siguiente tema delimitado por tres hyphens:
+        content: `Genera un artículo sobre el siguiente tema delimitado por tres hyphens como html:
         ---
         ${topic}
-        ---
-        Targeting the following keywords delimited by triple hyphens:
-        ---
-        ${keywords}
         ---
         `,
       },
     ],
     temperature: 1,
-    max_tokens: 256,
+    max_tokens: 500,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
