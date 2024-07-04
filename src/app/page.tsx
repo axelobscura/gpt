@@ -61,7 +61,7 @@ export default function Home() {
           </p>
           <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
         </div>
-        <div className="w-full block p-4 mb-3 grid fixed bottom-0 left-0 right-0 bg-white">
+        <div className="w-full block p-4 grid fixed bottom-0 left-0 right-0 bg-white">
           <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[90%_1fr_1fr]">
             <input type="text" id="tema" name="tema" placeholder="Envía un mensaje a Asistente IMCYC" value={tema} onChange={(e) => setTema(e.target.value)} className="w-full px-10 py-1 rounded-md mb-4 text-gray-900 border-gray-900 h-90" style={{
               backgroundColor: '#f4f4f4',
