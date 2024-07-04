@@ -1,13 +1,13 @@
 "use client"
 import { useState } from "react";
-import Link from "next/link";
+import Image from 'next/image'
 import { Logo } from "./components/Logo";
 import { FiArrowUpCircle } from "react-icons/fi";
 
 export default function Home() {
   const [articulo, setArticulo] = useState("");
   const [tema, setTema] = useState("");
-  const [autor, setAutor] = useState(false);
+  const [autor, setAutor] = useState(true);
   const [keywords, setKeywords] = useState("");
   const nuevaConsulta = (e: any) => {
     e.preventDefault();
@@ -17,6 +17,7 @@ export default function Home() {
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setAutor(false);
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -25,8 +26,10 @@ export default function Home() {
       body: JSON.stringify({ tema })
     });
     const data = await response.json();
+    if(data){
+      setAutor(true);
+    }
     setArticulo(data.message);
-    setAutor(true);
   }
   return (
     <div className="grid h-screen max-h-screen">
@@ -34,18 +37,29 @@ export default function Home() {
         <Logo />
         <h1 className="text-2xl text-upper font-bold mb-4 uppercase font-thin" style={{
           color: '#333'
-        }}>Asistente concreton by IMCYC</h1>
+        }}>Asistente concretón by IMCYC</h1>
         <p><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         <div className="p-10 rounded-md w-full overflow-auto text-justify">
-          {autor ? 
-            <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
-          :
-            <div><p className="uppercase w-full text-center ">Cargando contenido</p></div>
-          }
+          <p>
+            { autor ? 
+              "" 
+            : 
+              <Image
+                src="/loader.gif"
+                width={50}
+                height={50}
+                alt="Acervo del cemento y del concreto - Instituto Mexicano del Cemento y del Concreto A.C."
+                style={{
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+              />
+            }
+          </p>
+          <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
         </div>
-        
         <div className="w-full block p-4 mb-3 grid">
-          <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[90%_1fr]">
+          <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[95%_1fr]">
             <input type="text" id="tema" name="tema" value={tema} onChange={(e) => setTema(e.target.value)} className="w-full px-10 py-1 rounded-md mb-4 text-gray-900 border-gray-900 h-90" style={{
               backgroundColor: '#ddd',
               padding: '20px',
