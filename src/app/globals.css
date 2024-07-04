@@ -20,7 +20,7 @@ body {
   color: #111;
 }
 
-.articulo p {
+.articulo p, .articulo li {
   padding: 10px 0;
 }
 
