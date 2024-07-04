@@ -7,9 +7,10 @@ export default function Home() {
     const response = await fetch("/api/generate", {
       method: "POST"
     });
-    const data = await response.json();
+    const data = await response;
     console.log(data)
   }
+  
   return (
     <div className="grid grid-cols-[300px_1fr] h-screen max-h-screen">
       <div className="flex flex-col text-white overflow-hidden">
