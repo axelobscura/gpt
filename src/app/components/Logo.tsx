@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export const Logo = () => {
+export const Logo = ({ nuevaconsulta } : {nuevaconsulta:any}) => {
   return (
     <div className="px-2">
       <div className="py-5 text-center block w-full">
@@ -13,6 +13,7 @@ export const Logo = () => {
             display: 'block',
             margin: '0 auto',
           }}
+          onClick={nuevaconsulta}
         />
         <Image
           src="/concreton.jpg"

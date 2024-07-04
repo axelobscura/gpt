@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="grid h-screen max-h-screen">
       <div className="flex flex-col items-center justify-center px-4">
-        <Logo />
+        <Logo nuevaconsulta={nuevaConsulta} />
         <h1 className="text-2xl text-upper font-bold mb-4 font-bold" style={{
           color: '#333'
         }}>Asistente Concretón by IMCYC</h1>
