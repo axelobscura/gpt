@@ -37,11 +37,11 @@ export const POST = async (req: Request) => {
         `,
       },
     ],
-    temperature: 0,
+    temperature: 0.5,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-  });
+  }, { timeout: 10000000 });
 
   const postContent = postContentResult.data.choices[0]?.message?.content;
 
