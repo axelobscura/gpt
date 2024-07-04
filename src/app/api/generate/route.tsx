@@ -14,7 +14,7 @@ export const POST = async (req: Request) => {
   const topic = data.tema;
   
   const postContentResult = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo-1106',
+    model: 'gpt-4o',
     messages: [
       {
         role: 'system',
