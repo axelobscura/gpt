@@ -6,7 +6,7 @@ export const Logo = () => {
       <div className="py-5 text-center block w-full">
         <Image
           src="/logo.svg"
-          width={200}
+          width={250}
           height={45}
           alt="Acervo del cemento y del concreto - Instituto Mexicano del Cemento y del Concreto A.C."
           style={{
@@ -16,7 +16,7 @@ export const Logo = () => {
         />
         <Image
           src="/concreton.jpg"
-          width={150}
+          width={170}
           height={45}
           alt="Acervo del cemento y del concreto - Instituto Mexicano del Cemento y del Concreto A.C."
           style={{
