@@ -33,14 +33,16 @@ export default function Home() {
   }
   return (
     <div className="grid h-screen max-h-screen">
-      <div className="flex flex-col items-center justify-center h-screen px-4">
+      <div className="flex flex-col items-center justify-center px-4">
         <Logo />
         <h1 className="text-2xl text-upper font-bold mb-4 font-bold" style={{
           color: '#333'
         }}>Asistente Concretón by IMCYC</h1>
         <p className="text-gray-400"><small>Por Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         <p className="text-gray-700"><small>Asistente en tecnología del concreto y del cemento</small></p>
-        <div className="p-10 rounded-md w-full overflow-auto text-justify">
+        <div className="p-10 rounded-md w-full text-justify" style={{
+          marginBottom: autor ? "120px" : "0px"
+        }}>
           <p>
             { autor ? 
               "" 
@@ -59,7 +61,7 @@ export default function Home() {
           </p>
           <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
         </div>
-        <div className="w-full block p-4 mb-3 grid">
+        <div className="w-full block p-4 mb-3 grid fixed bottom-0 left-0 right-0">
           <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[90%_1fr_1fr]">
             <input type="text" id="tema" name="tema" placeholder="Envía un mensaje a Asistente IMCYC" value={tema} onChange={(e) => setTema(e.target.value)} className="w-full px-10 py-1 rounded-md mb-4 text-gray-900 border-gray-900 h-90" style={{
               backgroundColor: '#f4f4f4',
