@@ -1,7 +1,13 @@
+"use client"
 import Link from "next/link";
 import { Logo } from "./components/Logo";
 
 export default function Home() {
+  const handleClick = async () => {
+    const response = await fetch("/api/generate");
+    const data = await response.json();
+    console.log(data)
+  }
   return (
     <div className="grid grid-cols-[300px_1fr] h-screen max-h-screen">
       <div className="flex flex-col text-white overflow-hidden">
@@ -18,8 +24,10 @@ export default function Home() {
           Usuario
         </div>
       </div>
-      <div className="bg-slate-900">
-        Contenido
+      <div className="bg-slate-900 flex flex-col items-center justify-center h-screen px-4">
+        <button className="bg-green-500 tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-green-600 transition-colors block" onClick={handleClick}>
+          GENERAR CONTENIDO
+        </button>
       </div>
     </div>
   );
