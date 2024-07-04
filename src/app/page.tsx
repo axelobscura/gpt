@@ -5,7 +5,7 @@ import { Logo } from "./components/Logo";
 export default function Home() {
   const handleClick = async () => {
     const response = await fetch("/api/generate", {
-      method: "POST"
+      method: "GET"
     });
     const data = await response;
     console.log(data)

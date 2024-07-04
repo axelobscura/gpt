@@ -1,33 +1,11 @@
-import { OpenAIApi, Configuration } from "openai";
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-
-const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(config);
-
-const topic = "concreto";
-const keywords = "agregados para concreto";
+import type { NextApiRequest, NextApiResponse } from 'next'
  
-export async function POST(
+type ResponseData = {
+  message: string
+}
+ 
+export function GET(
   req: NextApiRequest,
 ) {
-  const response = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo-1106",
-    messages: [
-      {
-        role: "system",
-        content: "Asistente de concreto.",
-      },
-      {
-        role: "user",
-        content: `Generar un titulo y una descripcion para el siguiente: ${topic}.`,
-      },
-    ],
-  });
-  
-  console.log(response);
   return Response.json({ message: 'Hello from Next.js!' })
 }
