@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from 'next/image'
 import { Logo } from "./components/Logo";
-import { FiArrowUpCircle } from "react-icons/fi";
+import { FiArrowUpCircle, FiXCircle } from "react-icons/fi";
 
 export default function Home() {
   const [articulo, setArticulo] = useState("");
@@ -59,17 +59,26 @@ export default function Home() {
           <div dangerouslySetInnerHTML={{__html: articulo}} className="articulo" />
         </div>
         <div className="w-full block p-4 mb-3 grid">
-          <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[95%_1fr]">
+          <form onSubmit={handleSubmit} className="w-full block p-4 grid grid-cols-[90%_1fr_1fr]">
             <input type="text" id="tema" name="tema" value={tema} onChange={(e) => setTema(e.target.value)} className="w-full px-10 py-1 rounded-md mb-4 text-gray-900 border-gray-900 h-90" style={{
               backgroundColor: '#ddd',
               padding: '20px',
               borderRadius: '20px'
             }} />
-            <button type="submit" className="tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-4 py-2 my-2 rounded-md transition-colors block" style={{
+            <button type="submit" className="tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-1 py-2 my-2 rounded-md transition-colors block" style={{
               borderRadius: "50%",
               marginTop: "-10px"
             }}>
               <FiArrowUpCircle className="bg-gray-500 hover:bg-gray-600" style={{
+                fontSize: '60px',
+                borderRadius: '50%'
+              }} />
+            </button>
+            <button onClick={nuevaConsulta} className="tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-1 py-2 my-2 rounded-md transition-colors block" style={{
+              borderRadius: "50%",
+              marginTop: "-10px"
+            }}>
+              <FiXCircle className="bg-red-500 hover:bg-gray-600" style={{
                 fontSize: '60px',
                 borderRadius: '50%'
               }} />
