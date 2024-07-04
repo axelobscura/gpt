@@ -37,7 +37,7 @@ export default function Home() {
         <Logo />
         <h1 className="text-2xl text-upper font-bold mb-4 font-bold" style={{
           color: '#333'
-        }}>Asistente concretón by IMCYC</h1>
+        }}>Asistente Concretón by IMCYC</h1>
         <p className="text-gray-400"><small>Por Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         <p className="text-gray-700"><small>Asistente en tecnología del concreto y del cemento</small></p>
         <div className="p-10 rounded-md w-full overflow-auto text-justify">
