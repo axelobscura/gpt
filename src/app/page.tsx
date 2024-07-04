@@ -1,14 +1,16 @@
 "use client"
+import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "./components/Logo";
 
 export default function Home() {
+  const [articulo, setArticulo] = useState("");
   const handleClick = async () => {
     const response = await fetch("/api/generate", {
       method: "GET"
     });
     const data = await response.json();
-    console.log(data)
+    setArticulo(data.message);
   }
   return (
     <div className="grid grid-cols-[300px_1fr] h-screen max-h-screen">
@@ -27,6 +29,10 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-slate-900 flex flex-col items-center justify-center h-screen px-4">
+        <h1 className="text-white text-3xl text-upper font-bold mb-4">Generador de contenido sobre concreto</h1>
+        <div className="bg-slate-700 p-5 rounded-md w-full h-96 overflow-auto text-justify">
+          {articulo}
+        </div>
         <button className="bg-green-500 tracking-wider w-full text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-green-600 transition-colors block" onClick={handleClick}>
           GENERAR CONTENIDO
         </button>
