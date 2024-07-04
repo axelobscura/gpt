@@ -41,7 +41,7 @@ export const POST = async (req: Request) => {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0
-  });
+  }, { timeout: 10000000 });
 
   const postContent = postContentResult.data.choices[0]?.message?.content;
 
