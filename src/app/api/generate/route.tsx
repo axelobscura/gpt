@@ -1,8 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
- 
-type ResponseData = {
-  message: string
-}
+import OpenAI from 'openai';
+import type { NextApiRequest, NextApiResponse } from 'next';
  
 export function GET(
   req: NextApiRequest,
