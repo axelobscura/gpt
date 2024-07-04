@@ -4,7 +4,9 @@ import { Logo } from "./components/Logo";
 
 export default function Home() {
   const handleClick = async () => {
-    const response = await fetch("/api/generate");
+    const response = await fetch("/api/generate", {
+      method: "POST"
+    });
     const data = await response.json();
     console.log(data)
   }

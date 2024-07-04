@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
  
-export function GET(
+export function POST(
   req: NextApiRequest,
 ) {
   return Response.json({ message: 'Hello from Next.js!' })
