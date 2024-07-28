@@ -14,7 +14,7 @@ export const POST = async (req: Request) => {
   const topic = data.tema;
   
   const postContentResult = await openai.createChatCompletion({
-    model: 'gpt-4',
+    model: 'gpt-3.5-turbo',
     messages: [
       {
         role: 'system',
@@ -37,8 +37,8 @@ export const POST = async (req: Request) => {
         `,
       },
     ],
-    temperature: 0.7,
-    max_tokens: 5000,
+    temperature: 1,
+    max_tokens: 1000,
   }, { timeout: 10000000 });
 
   const postContent = postContentResult.data.choices[0]?.message?.content;

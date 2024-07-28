@@ -15,19 +15,6 @@ export const Logo = ({ nuevaconsulta } : {nuevaconsulta:any}) => {
           }}
           onClick={nuevaconsulta}
         />
-        <Image
-          src="/concreton.jpg"
-          width={170}
-          height={45}
-          alt="Acervo del cemento y del concreto - Instituto Mexicano del Cemento y del Concreto A.C."
-          style={{
-            display: 'block',
-            margin: '0 auto',
-            marginTop: '25px',
-            boxShadow: '0 0 10px #777',
-            borderRadius: '40px'
-          }}
-        />
       </div>
     </div>
   );
