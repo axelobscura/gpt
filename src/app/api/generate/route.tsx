@@ -49,5 +49,4 @@ export const POST = async (req: Request) => {
     // Handle the case where data or choices are undefined
     return Response.json({ message: 'Data or choices are undefined' });
   }
-  
 }
